@@ -72,6 +72,44 @@ struct MonkeyGlitch: Glitch {
     }
 }
 
+struct NeighbourXor: Glitch {
+    let distance: Int
+
+    func title() -> String {
+        return "Neighbour XOR \(distance)"
+    }
+
+    func glitch(data: NSMutableData) {
+        let originalData = NSData(data: data)
+        let originalBytes = UnsafePointer<UInt8>(originalData.bytes)
+        let bytes = UnsafeMutablePointer<UInt8>(data.mutableBytes)
+        let len = data.length
+        for idx in 0..<len {
+            let minIdx = max(0, idx - distance)
+            let maxIdx = min(len-1, idx + distance)
+            var b = UInt8(0)
+            for distIdx in minIdx...maxIdx {
+                b ^= originalBytes[distIdx]
+            }
+            bytes[idx] = b
+        }
+    }
+}
+
+struct BitShiftGlitch: Glitch {
+    func title() -> String {
+        return "Bit Shift"
+    }
+
+    func glitch(data: NSMutableData) {
+        let bytes = UnsafeMutablePointer<UInt8>(data.mutableBytes)
+        for idx in 0..<data.length {
+            let b = bytes[idx]
+            bytes[idx] = (b << 1) | (b >> 7)
+        }
+    }
+}
+
 struct Model {
     var inputURL: NSURL?
     var headerSize: Int
@@ -109,6 +147,12 @@ class AppDelegate: NSObject {
             AdditionGlitch(operand: 1),
             AdditionGlitch(operand: 32),
             AdditionGlitch(operand: 128),
+            NeighbourXor(distance: 1),
+            NeighbourXor(distance: 3),
+            NeighbourXor(distance: 7),
+            NeighbourXor(distance: 20),
+            NeighbourXor(distance: 50),
+            BitShiftGlitch(),
         ]
     }
 
@@ -133,7 +177,6 @@ class AppDelegate: NSObject {
         let glitch = glitches[model.glitchIndex]
 
         buffer.replaceBytesInRange(headerRange, withBytes: nil, length: 0)
-        print("Running glitch: \(glitch.title())")
         glitch.glitch(buffer)
         buffer.replaceBytesInRange(NSMakeRange(0, 0), withBytes:header.bytes, length: header.length)
 
