@@ -844,6 +844,9 @@
                 </constraints>
                 <animations/>
             </view>
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="xya-gn-OmD"/>
+            </connections>
             <point key="canvasLocation" x="410" y="481"/>
         </window>
     </objects>

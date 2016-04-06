@@ -324,3 +324,8 @@ extension AppDelegate: NSApplicationDelegate {
     }
 }
 
+extension AppDelegate: NSWindowDelegate {
+    func windowWillClose(notification: NSNotification) {
+        NSApp.terminate(nil)
+    }
+}
