@@ -19,43 +19,76 @@
       }
       body {
         font-size: inherit;
-        padding: 3rem 0;
+        background: #340D56;
       }
-      .row {
+      .app-info {
+        padding-top: 2rem;
         text-align: center;
+        background: #D5E9FF;
       }
       h1 small {
         display: block;
         margin: 0.5rem 0;
       }
-      .links .btn {
-        margin: 2rem 0;
-      }
       .attribution {
-        font-size: 0.6rem;
+        margin: 1rem 0;
+        font-size: 0.7rem;
+      }
+      .links .btn {
+        margin: 1.5rem 0 2rem 0;
+      }
+      .examples {
+        padding: 2rem 0;
+      }
+      .examples h2 {
+        text-align: center;
+        color: #D5E9FF;
+        margin: 0 0 2rem 0;
+      }
+      .examples img {
+        display: block;
+        margin: 2rem auto;
+        max-width: 100%;
+        height: auto;
       }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <img src="logo.png" class="img-responsive center-block" />
-          <h1>Glitch Pigeon <small>File glitcher/corruptor app for OS X</small></h1>
-          <p class="links">
-            <a href="https://github.com/tomdalling/glitch-pigeon/releases" class="btn btn-lg btn-primary">
-              Download
-            </a>
-            <a href="https://github.com/tomdalling/glitch-pigeon/" class="btn btn-lg btn-default">
-              Github Project
-            </a>
-          </p>
-          <p class="attribution">
-            Whipped up by <a href="http://www.tomdalling.com/">Tom Dalling</a>
-          </p>
+
+    <div class="app-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <img src="logo.png" class="img-responsive center-block" />
+            <h1>Glitch Pigeon <small>File glitcher/corruptor app for OS X</small></h1>
+            <p class="attribution">
+              Whipped up by <a href="http://www.tomdalling.com/">Tom Dalling</a>
+            </p>
+            <p class="links">
+              <a href="https://github.com/tomdalling/glitch-pigeon/releases" class="btn btn-lg btn-primary">
+                Download
+              </a>
+              <a href="https://github.com/tomdalling/glitch-pigeon/" class="btn btn-lg btn-default">
+                Github Project
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="examples">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Example Glitches</h2>
+            <img src="examples/spagett.png" />
+            <img src="examples/mask.gif" />
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
