@@ -14,11 +14,25 @@
     <![endif]-->
 
     <style type="text/css">
-      h1 {
+      html {
+        font-size: 22px;
+      }
+      body {
+        font-size: inherit;
+        padding: 3rem;
+      }
+      .row {
         text-align: center;
       }
       h1 small {
         display: block;
+        margin: 0.5rem 0;
+      }
+      .links {
+        margin: 2rem 0;
+      }
+      .attribution {
+        font-size: 0.6rem;
       }
     </style>
   </head>
@@ -27,7 +41,19 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h1>Glitch Pigeon <small>File glitcher/corruptor app for OSX X</small></h1>
+          <img src="logo.png" class="img-responsive center-block" />
+          <h1>Glitch Pigeon <small>File glitcher/corruptor app for OS X</small></h1>
+          <p class="links">
+            <a href="https://github.com/tomdalling/glitch-pigeon/releases" class="btn btn-lg btn-primary">
+              Download
+            </a>
+            <a href="https://github.com/tomdalling/glitch-pigeon/" class="btn btn-lg btn-default">
+              Github Project
+            </a>
+          </p>
+          <p class="attribution">
+            Whipped up by <a href="http://www.tomdalling.com/">Tom Dalling</a>
+          </p>
         </div>
       </div>
     </div>
